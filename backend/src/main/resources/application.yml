@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: weaklyBasis
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user_grp4
+    password: user_grp4
+  liquibase:
+    change-log: classpath:/config/liquibase/master.xml

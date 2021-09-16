@@ -1,0 +1,9 @@
+version: '2'
+services:
+  db-postgres:
+    image: postgres:11.5
+    environment:
+      - POSTGRES_USER=user_grp4
+      - POSTGRES_PASSWORD=user_grp4
+    ports:
+      - '5432:5432'
