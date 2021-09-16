@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="202109161110" author="edson.matheus">
+        <createTable tableName="ESTADO_NA_FILA">
+            <column name="ID" type="int" autoIncrement="true" remarks="id do estado">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="DESCRICAO" type="varchar(30)" remarks="descrição do estado do evento na fila">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202109161120" author="edson.matheus">
+        <createTable tableName="MOTIVO_EVENTO">
+            <column name="ID" type="int" autoIncrement="true" remarks="motivo do evento">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="DESCRICAO" type="varchar(100)" remarks="descrição do evento">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="TITULO" type="varchar(30)" remarks="titulo do evento ">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="202109151430" author="edson.matheus">
+        <createTable tableName="EVENTO">
+
+            <column name="ID" type="int" autoIncrement="true" remarks="id table user">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="JUSTIFICATIVA" type="varchar(255)" remarks="Justificativa para adiamento">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="ESTADO_FILA_ID" type="int" remarks="Situação do evento na fila">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="ID_MOTIVO" type="int" remarks="Chave estrangeira de motivo do evento">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="DT_EVENTO" type="date" remarks="date do evento">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="VALOR" type="double" remarks="status de atividade do usuario">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="NUMEROS_PATROCINADORES" type="int" remarks="número de patrocinadores">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202109161131" author="edson.matheus">
+        <addForeignKeyConstraint baseTableName="EVENTO"
+                                 baseColumnNames="ID_MOTIVO"
+                                 constraintName="FK_MOTIVO_EVENTO"
+                                 referencedTableName="MOTIVO_EVENTO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="202109161190" author="edson.matheus">
+        <addForeignKeyConstraint baseTableName="EVENTO"
+                                 baseColumnNames="ESTADO_FILA_ID"
+                                 constraintName="FK_ESTADO_FILA_EVENTO"
+                                 referencedTableName="ESTADO_NA_FILA"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+</databaseChangeLog>
