@@ -8,5 +8,6 @@
        <include file="config/liquibase/changelogs/20210915_create_table_usuario.xml"/>
        <include file="config/liquibase/changelogs/20210916_create_tb_motivo_evento_tb_fila_tb_eventos.xml"/>
        <include file="config/liquibase/changelogs/20210916_create_tb_relacionamento_usuario_evento.xml"/>
+       <include file="config/liquibase/changelogs/20210916_insert_in_tb_cargo.xml"/>
 
 </databaseChangeLog>

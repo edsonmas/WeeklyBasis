@@ -10,53 +10,36 @@
             <column name="ID" type="int" autoIncrement="true" remarks="id table user">
                 <constraints primaryKey="true"/>
             </column>
-
             <column name="DESCRICAO" type="varchar(30)" remarks="descrição do estado do evento na fila">
                 <constraints nullable="false"/>
             </column>
-
         </createTable>
     </changeSet>
 
     <changeSet id="202109151460" author="Gabrielly_Soares">
         <createTable tableName="USUARIO">
-
             <column name="ID" type="int" autoIncrement="true" remarks="id table user">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-
             <column name="NOME" type="varchar(30)" remarks="Nome do usuario">
-
                 <constraints nullable="false"/>
-
             </column>
-
-
             <column name="CPF" type="varchar(11)" remarks="CPF do usuario">
                 <constraints nullable="false"/>
             </column>
-
-
             <column name="EMAIL" type="varchar(50)" remarks="Email do usuario">
                 <constraints unique="true" nullable="false"/>
             </column>
-
-
             <column name="ID_CARGO" type="int" remarks="Chave estrangeira de cargo">
                 <constraints nullable="false"/>
             </column>
-
-
             <column name="FOTO" type="xml" remarks="foto do usuario"/>
-
             <column name="DT_NASCIMENTO" type="date" remarks="date de nascimento do usuario">
                 <constraints nullable="false"/>
             </column>
-
             <column name="ST_ATIVO" type="boolean" remarks="status de atividade do usuario">
                 <constraints nullable="false"/>
             </column>
-
         </createTable>
     </changeSet>
 
@@ -67,5 +50,4 @@
                                  referencedTableName="CARGO"
                                  referencedColumnNames="ID"/>
     </changeSet>
-
 </databaseChangeLog>
