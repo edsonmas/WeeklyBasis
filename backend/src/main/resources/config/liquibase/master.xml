@@ -3,10 +3,5 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-       <include file="config/liquibase/changelogs/20210915_create_table_usuario.xml"/>
-
-       <include file="config/liquibase/changelogs/20210915_create_table_usuario.xml"/>
-       <include file="config/liquibase/changelogs/20210916_create_tb_motivo_evento_tb_fila_tb_eventos.xml"/>
-       <include file="config/liquibase/changelogs/20210916_create_tb_relacionamento_usuario_evento.xml"/>
 
 </databaseChangeLog>
