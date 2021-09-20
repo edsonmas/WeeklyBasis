@@ -1,7 +1,7 @@
 version: '2'
 services:
-  db-postgres-teste:
+  db-postgres:
     extends:
-      file: postgres/postgres-teste.yml
-      service: db-postgres-teste
-    container_name: db-postgres-teste
+      file: postgres/postgres.yml
+      service: db-postgres
+    container_name: db-postgres
