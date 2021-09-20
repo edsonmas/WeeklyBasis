@@ -7,9 +7,13 @@
 
     <changeSet id="202109161150" author="Gabrielly_Soares">
         <createTable tableName="CARGO">
+<<<<<<< HEAD
+
+=======
             <column name="ID" type="int" autoIncrement="true" remarks="id table user">
                 <constraints primaryKey="true"/>
             </column>
+>>>>>>> f54529bd58863e41fbf8783a7a49fcf654b08397
             <column name="DESCRICAO" type="varchar(30)" remarks="descrição do estado do evento na fila">
                 <constraints nullable="false"/>
             </column>
