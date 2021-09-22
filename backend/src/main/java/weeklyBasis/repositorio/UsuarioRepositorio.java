@@ -6,6 +6,6 @@ import weeklyBasis.dominios.Usuario;
 
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
-    String existsByCp(String cpf);
+    boolean existsByCpf(String cpf);
 
 }
