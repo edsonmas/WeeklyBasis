@@ -6,4 +6,4 @@ services:
       - POSTGRES_USER=user_grp4
       - POSTGRES_PASSWORD=user_grp4
     ports:
-      - '5432:5432'
+      - 5432:5432
