@@ -19,7 +19,7 @@
     <changeSet id="202109151460" author="Gabrielly_Soares">
         <createTable tableName="USUARIO">
             <column name="ID" type="int" autoIncrement="true" remarks="id table user">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="NOME" type="varchar(30)" remarks="Nome do usuario">
                 <constraints nullable="false"/>
@@ -33,12 +33,10 @@
             <column name="ID_CARGO" type="int" remarks="Chave estrangeira de cargo">
                 <constraints nullable="false"/>
             </column>
-            <column name="FOTO" type="xml" remarks="foto do usuario"/>
             <column name="DT_NASCIMENTO" type="date" remarks="date de nascimento do usuario">
                 <constraints nullable="false"/>
             </column>
-            <column name="ST_ATIVO" type="boolean" remarks="status de atividade do usuario">
-                <constraints nullable="false"/>
+            <column name="ST_ATIVO" type="boolean" value="true" remarks="status de atividade do usuario">
             </column>
         </createTable>
     </changeSet>

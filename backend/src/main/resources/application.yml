@@ -8,3 +8,4 @@ spring:
     password: user_grp4
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
+    drop-first: true
