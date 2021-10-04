@@ -31,7 +31,6 @@
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="ID_CARGO" type="int" remarks="Chave estrangeira de cargo">
-                <constraints nullable="false"/>
             </column>
             <column name="DT_NASCIMENTO" type="date" remarks="date de nascimento do usuario">
                 <constraints nullable="false"/>

@@ -23,7 +23,7 @@ public class EventoRecurso {
     private final EventoServico eventoServico;
 
     @GetMapping
-    public ResponseEntity<List<EventoDTO>> usuarioList(){
+    public ResponseEntity<List<EventoDTO>> eventoList(){
         return new ResponseEntity<>(eventoServico.listarEventos(), HttpStatus.OK);
     }
 

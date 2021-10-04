@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import weeklyBasis.dominios.Cargo;
 import weeklyBasis.repositorios.CargoRepositorio;
+import weeklyBasis.servicos.dto.CargoDTO;
+import weeklyBasis.servicos.dto.SelectDTO;
+import weeklyBasis.servicos.mapper.CargoMapper;
 
 import java.util.List;
 
@@ -12,11 +15,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CargoServico {
 
-    @Autowired
     private final CargoRepositorio cargoRepositorio;
 
-    public List<Cargo> listaCargos(){
-        return cargoRepositorio.findAll();
+    private final CargoMapper cargoMapper;
+
+
+
+    public List<SelectDTO> listaCargos(){
+        List<Cargo> cargos = cargoRepositorio.findAll();
+        return cargoMapper.toDto(cargos);
     }
 
 }
