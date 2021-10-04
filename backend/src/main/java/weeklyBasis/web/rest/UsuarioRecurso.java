@@ -51,5 +51,4 @@ public class UsuarioRecurso {
         usuarioServico.inativarPorId(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }

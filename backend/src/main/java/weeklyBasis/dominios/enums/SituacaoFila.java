@@ -1,5 +1,4 @@
 package weeklyBasis.dominios.enums;
-
 import lombok.Getter;
 
 @Getter

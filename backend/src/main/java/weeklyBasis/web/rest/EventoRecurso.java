@@ -53,4 +53,10 @@ public class EventoRecurso {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
 
+//
+//    @PostMapping
+//    public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO){
+//        eventoServico.cadastrarUsuario(usuarioDTO);
+//        return ResponseEntity.created(URI.create("api/eventos"+usuarioDTO.getId())).build();
+//    }
 }

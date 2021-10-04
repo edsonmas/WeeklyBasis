@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Usuario implements Serializable {
 
     @Id
@@ -36,5 +37,12 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "id_cargo")
     private Cargo cargo;
 
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "evento_usuario", joinColumns =
+    @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "evento_id")
+    )
+    private List<Evento> eventos = new ArrayList<>();
 
 }

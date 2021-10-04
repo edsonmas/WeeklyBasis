@@ -7,6 +7,7 @@
 
     <changeSet id="202109161150" author="Gabrielly_Soares">
         <createTable tableName="CARGO">
+
             <column name="ID" type="int" autoIncrement="true" remarks="id table user">
                 <constraints primaryKey="true"/>
             </column>
