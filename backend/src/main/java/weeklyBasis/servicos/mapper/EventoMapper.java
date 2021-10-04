@@ -1,15 +1,11 @@
 package weeklyBasis.servicos.mapper;
 
+import org.mapstruct.Mapper;
 import weeklyBasis.dominios.Evento;
+import weeklyBasis.dominios.Usuario;
 import weeklyBasis.servicos.dto.EventoDTO;
+import weeklyBasis.servicos.dto.UsuarioDTO;
 
-import java.util.List;
-
-public interface EventoMapper {
-
-    EventoDTO toDto(Evento eve);
-
-    Evento toEntity(EventoDTO dto);
-
-    List<EventoDTO> toDto(List<Evento> all);
+@Mapper(componentModel = "spring", uses = {MotivoMapper.class,PatrocinadorMapper.class})
+public interface EventoMapper extends EntityMapper<EventoDTO, Evento>{
 }

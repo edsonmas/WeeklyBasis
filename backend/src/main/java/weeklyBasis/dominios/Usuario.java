@@ -27,16 +27,16 @@ public class Usuario implements Serializable {
     private String email;
 
     @Column(name = "st_ativo")
-    private Boolean statusAtivo = true;
+    private Boolean statusAtivo;
 
     @Column(name = "dt_nascimento")
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
-    private byte[] foto;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "id_cargo")
     private Cargo cargo;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "evento_usuario", joinColumns =

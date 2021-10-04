@@ -1,9 +1,12 @@
 package weeklyBasis.dominios;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import weeklyBasis.dominios.enums.SituacaoFila;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,6 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Evento implements Serializable {
 
     @Id
@@ -21,6 +25,7 @@ public class Evento implements Serializable {
     private Long id;
 
     @Column(name = "dt_evento")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dtEvento;
 
     @Column(name = "justificativa")
@@ -28,9 +33,18 @@ public class Evento implements Serializable {
 
     private Double valor;
 
-    private SituacaoFila codigoSituacao;
+    @ManyToOne
+    @JoinColumn(name = "motivo_evento_id")
+    private MotivoEvento motivoEvento;
 
-    @ManyToMany(mappedBy = "eventos")
-    private List<Usuario> usuarios = new ArrayList<>();
+    @Column(name = "estado_fila")
+    private SituacaoFila estado_fila;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "usuario_evento", joinColumns =
+            {@JoinColumn(name = "evento_id")},
+            inverseJoinColumns={@JoinColumn(name = "usuario_id")}
+    )
+    private List<Usuario> patrocinadores = new ArrayList<>();
 
 }

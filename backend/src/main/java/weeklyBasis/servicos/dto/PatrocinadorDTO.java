@@ -5,13 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ListagemUsuarioDTO {
+public class PatrocinadorDTO {
 
-    private Long id;
     private String nome;
-    private Boolean statusAtivo;
     private String email;
     private SelectDTO cargo;
-
 
 }

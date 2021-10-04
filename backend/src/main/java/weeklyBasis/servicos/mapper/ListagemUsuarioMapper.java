@@ -1,6 +1,5 @@
 package weeklyBasis.servicos.mapper;
 
-
 import org.mapstruct.Mapper;
 import weeklyBasis.dominios.Usuario;
 import weeklyBasis.servicos.dto.ListagemUsuarioDTO;

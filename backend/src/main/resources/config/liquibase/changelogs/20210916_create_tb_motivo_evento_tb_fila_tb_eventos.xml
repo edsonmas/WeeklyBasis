@@ -44,15 +44,12 @@
             </column>
 
             <column name="JUSTIFICATIVA" type="varchar(255)" remarks="Justificativa para adiamento">
-                <constraints nullable="false"/>
             </column>
 
-            <column name="ESTADO_FILA_ID" type="int" remarks="Situação do evento na fila">
-                <constraints nullable="false"/>
+            <column name="ESTADO_FILA" type="int" remarks="Situação do evento na fila">
             </column>
 
-
-            <column name="ID_MOTIVO" type="int" remarks="Chave estrangeira de motivo do evento">
+            <column name="MOTIVO_EVENTO_ID" type="int" remarks="Chave estrangeira de motivo do evento">
                 <constraints nullable="false"/>
             </column>
 
@@ -64,7 +61,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="NUMEROS_PATROCINADORES" type="int" remarks="número de patrocinadores">
+            <column name="NUMERO_PATROCINADORES" type="int" remarks="número de patrocinadores">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -72,7 +69,7 @@
 
     <changeSet id="202109161131" author="edson.matheus">
         <addForeignKeyConstraint baseTableName="EVENTO"
-                                 baseColumnNames="ID_MOTIVO"
+                                 baseColumnNames="MOTIVO_EVENTO_ID"
                                  constraintName="FK_MOTIVO_EVENTO"
                                  referencedTableName="MOTIVO_EVENTO"
                                  referencedColumnNames="ID"/>
@@ -80,7 +77,7 @@
 
     <changeSet id="202109161190" author="edson.matheus">
         <addForeignKeyConstraint baseTableName="EVENTO"
-                                 baseColumnNames="ESTADO_FILA_ID"
+                                 baseColumnNames="ESTADO_FILA"
                                  constraintName="FK_ESTADO_FILA_EVENTO"
                                  referencedTableName="ESTADO_NA_FILA"
                                  referencedColumnNames="ID"/>

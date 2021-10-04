@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import weeklyBasis.dominios.Usuario;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import weeklyBasis.servicos.UsuarioServico;
 import weeklyBasis.servicos.dto.ListagemUsuarioDTO;
 import weeklyBasis.servicos.dto.UsuarioDTO;
@@ -32,9 +32,23 @@ public class UsuarioRecurso {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO){
-        usuarioServico.cadastrarUsuario(usuarioDTO);
-        return ResponseEntity.created(URI.create("api/usuarios"+usuarioDTO.getId())).build();
+    public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioSalvo){
+        usuarioSalvo = usuarioServico.cadastrarUsuario(usuarioSalvo);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuarioSalvo.getId()).toUri();
+        return ResponseEntity.created(uri).body(usuarioSalvo);
     }
 
+    @PutMapping(path = "{id}")
+    public ResponseEntity<UsuarioDTO> atualizarUsuario(@PathVariable long id,@RequestBody UsuarioDTO usuarioDTO){
+        usuarioDTO.setId(id);
+        usuarioServico.atualizarUsuario(usuarioDTO);
+        return ResponseEntity.ok(usuarioDTO);
+    }
+
+
+    @PutMapping(value = "/inativar/{id}")
+    public ResponseEntity<Void> inativarPorId(@PathVariable long id){
+        usuarioServico.inativarPorId(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

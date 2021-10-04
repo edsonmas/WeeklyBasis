@@ -7,25 +7,23 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public class UsuarioDTO {
-        private Long id;
+@Getter
+@Setter
+public class UsuarioDTO {
 
-        private String nome;
+    private Long id;
 
-        private String cpf;
+    private String nome;
 
-        private String email;
+    private String cpf;
 
-        private SelectCargoDTO cargo;
+    private String email;
 
-        private LocalDate dataNascimento;
+    private SelectDTO cargo;
 
+    private LocalDate dataNascimento;
 
-    }
-
+    private Boolean statusAtivo;
+}
 
 

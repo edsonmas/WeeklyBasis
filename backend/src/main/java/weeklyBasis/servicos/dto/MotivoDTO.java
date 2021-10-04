@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CargoDTO {
+public class MotivoDTO {
 
-    private String label;
-    private Integer cod;
+    private Long id;
+    private String descricao;
 }
